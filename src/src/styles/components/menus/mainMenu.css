@@ -1,0 +1,109 @@
+.main-menu {
+    font-size: 14px;
+    position: absolute;
+    width: 100%;
+    right: 0;
+    top: 85px;
+    background: var(--menu-bg-closed-colour);
+    height: calc(100% - 85px);
+    visibility: hidden;
+    z-index: 1;
+}
+
+.main-menu--open {
+    background: var(--menu-bg-open-colour);
+    visibility: visible;
+    animation-name: menu-fade-in;
+    animation-duration: .5s;
+}
+
+.main-menu--closed {
+    background:  var(--menu-bg-closed-colour);
+    visibility: hidden;
+    animation-name: menu-fade-out;
+    animation-duration: .5s;
+}
+
+.main-menu h2 {
+    font-size: 14px;
+    padding: 25px 20px 10px 20px;
+    margin: 0;
+}
+
+.main-menu ul {
+    list-style: none;
+}
+
+.main-menu li {
+    display: block;
+    border-bottom: 1px solid #ccc;
+}
+
+.main-menu li > span {
+    display: block;
+    padding: 15px 20px;
+    background: url('/public/arrow-right.png') no-repeat calc(100% - 20px) center;
+    cursor: pointer;
+}
+
+.main-menu li > span:hover {
+    background-color: rgba(0, 0, 0, .1);
+}
+
+.main-menu li > a {
+    display: block;
+    padding: 15px 20px;
+}
+
+.main-menu li > a[href^="#"] {
+    background: url('/public/arrow-right.png') no-repeat calc(100% - 20px) center;
+}
+
+.main-menu a {
+    color: #333;
+}
+
+.main-menu a:hover {
+    text-decoration: none;
+}
+
+.main-menu__back-link {
+    display: block;
+    padding: 15px 20px 15px 35px;
+    background: #f3f3f3 url('/public/arrow-left.png') no-repeat 15px center;
+    box-shadow: inset 0 7px 7px -7px #ddd;
+}
+
+.main-menu__back-link:hover {
+    background-color: rgba(0, 0, 0, .1);
+}
+
+.main-menu__nav {
+    width: 300px;
+    padding: 20px;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    padding: 0;
+    background: #fff;
+    color: #333;
+    height: 100%;
+    overflow-y: auto;
+    scrollbar-width: thin;
+}
+
+.main-menu__nav::-webkit-scrollbar {
+    width: 2px;
+}
+
+.main-menu__nav--open {
+    left:  var(--menu-open-position);
+    animation-name: menu-slide-in;
+    animation-duration: .5s;
+}
+
+.main-menu__nav--closed {
+    left: var(--menu-closed-position);
+    animation-name: menu-slide-out;
+    animation-duration: .5s;
+}

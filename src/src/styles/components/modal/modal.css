@@ -1,0 +1,26 @@
+.modal-background {
+    background-color: rgba(0, 0, 0, 0.2);
+    height: 100%;
+    width: inherit;
+    padding: 10%;
+    position: absolute;
+    z-index: 5;
+}
+
+.modal {
+    border-radius: var(--border-radius-med);
+    background-color: white;
+}
+
+.modal__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10vw;
+}
+
+.modal__text {
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 15px;
+}

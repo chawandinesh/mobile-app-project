@@ -1,0 +1,9 @@
+.basket-summary-text {
+  margin: 0;
+}
+
+.basket-summary-text__text {
+  color: var(--alt-text-colour);
+  font-size: 16px;
+  font-weight: 600;
+}

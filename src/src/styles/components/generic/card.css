@@ -1,0 +1,10 @@
+.card {
+    border-radius: var(--border-radius-med);
+    background-color: var(--brand-color-mawkish);
+    padding: 15px;
+    margin: 6px;
+}
+
+.card--white {
+    background-color: #fff;
+}

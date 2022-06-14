@@ -1,0 +1,79 @@
+.search {
+  margin: 20px 0;
+}
+
+.search__no-results {
+  margin: 20px 0;
+  padding-left: 20px;
+  border-left: 5px solid var(--brand-colour-four);
+}
+
+.search__search-term {
+  font-size: small;
+  padding: 8px 15px;
+  position: relative;
+  line-height: 1;
+  margin-right: 10px;
+  width: calc(70% - 10px); 
+}
+
+.search__results {
+  list-style-type: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.search-loading-outer {
+  position: relative;
+  padding: 20px;
+  top: -13px;
+}
+
+/**
+this is virtually the same as the button animation we should be able
+to re-used it
+ */
+.search__loading {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: var(--search-loading-width-height);
+  height: var(--search-loading-width-height);
+  border-radius: var(--border-radius-circle);
+  background-color: #fff;
+  color: #fff;
+  animation: dotFlashingOrangeReverse 1s infinite linear alternate;
+  animation-delay: .5s;
+}
+
+.search__loading::before,
+.search__loading::after {
+  width: var(--search-loading-width-height);
+  height: var(--search-loading-width-height);
+  content: '';
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  border-radius: var(--border-radius-circle);
+  background-color: #fff;
+  color: #fff;
+  animation: dotFlashingOrangeReverse 1s infinite alternate;
+}
+
+.search__loading::before {
+  left: -15px;
+  animation-delay: 0s;
+}
+
+.search__loading::after {
+  left: 15px;
+  animation-delay: 1s;
+}
+
+.search__results-quantity {
+  font-size: 13px;
+  position: relative;
+  top: 12px;
+}

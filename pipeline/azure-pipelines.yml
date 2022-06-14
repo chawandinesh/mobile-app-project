@@ -1,0 +1,328 @@
+name: 1.0.$(Build.BuildId)
+
+trigger:
+  batch: true
+  branches:
+    include:
+      - main
+  
+pool:
+  vmImage: ubuntu-latest
+
+variables:  
+  - group: 'Snap Core'
+  - group: 'Snap Mobile App'
+  - name: buildApiArtifact
+    value: '$(Build.BuildNumber).Snap.Mobile.App'
+  - name: publishedBuildsFolder
+    value: '$(Pipeline.Workspace)/published_builds/'
+  - name: builtArtifactsFolder
+    value: '$(Pipeline.Workspace)/built_artifacts/'
+
+stages:
+  - stage: Tag
+    displayName: Tag branch
+    jobs:
+      - job: Tag
+        displayName: Tag branch
+        steps:
+          - checkout: self
+            displayName: Checkout repo
+            persistCredentials: true
+            
+          - task: Bash@3
+            displayName: Create tag ($(Build.BuildNumber))
+            inputs:
+              targetType: inline
+              script: git tag $(Build.BuildNumber)
+
+          - task: Bash@3
+            displayName: Push tag
+            inputs:
+              targetType: inline
+              script: git push --tags
+
+  - stage: BuildAndDeployDev
+    condition: and(succeeded(), true)
+    dependsOn: Tag
+    displayName: Build & deploy (dev)
+    jobs:
+      - job:
+        displayName: Build & deploy (dev)
+        steps:
+        - checkout: self
+          displayName: Checkout repo
+          persistCredentials: true     
+
+        - task: NodeTool@0
+          displayName: 'Install Node.js'
+          inputs:
+            versionSpec: '16.x'
+
+        - script: npm install
+          displayName: 'Install dependencies'
+          workingDirectory: $(Build.SourcesDirectory)/mobile-app/src
+
+        - script: npm run build:dev
+          displayName: 'Build app (dev)'
+          workingDirectory: $(Build.SourcesDirectory)/mobile-app/src
+
+        - task: CopyFiles@2
+          displayName: 'Copy Build Output'
+          inputs:
+            sourceFolder: '$(Build.SourcesDirectory)/mobile-app/src/build'
+            Contents: '**/*'
+            targetFolder: $(builtArtifactsFolder)
+            cleanTargetFolder: true
+
+        - task: CopyFiles@2
+          displayName: 'Copy web.config file'
+          inputs:
+            sourceFolder: '$(Build.SourcesDirectory)/mobile-app/src'
+            contents: 'web.config'
+            targetFolder: $(builtArtifactsFolder)
+
+        - task: ArchiveFiles@2
+          displayName: 'Package files'
+          inputs:
+            rootFolderOrFile: $(builtArtifactsFolder)
+            includeRootFolder: false
+            archiveType: zip
+            archiveFile: '$(publishedBuildsFolder)/$(buildApiArtifact).zip'
+            replaceExistingArchive: true
+
+        - task: PublishBuildArtifacts@1
+          displayName: 'Publish to Azure Pipelines'
+          inputs:
+            pathtoPublish: '$(publishedBuildsFolder)/$(buildApiArtifact).zip'
+
+        - template: deploy-infra.yml
+          parameters: 
+            env: 'dev'
+            state_access_key: $(MobileAppStateAccessKeyDev)
+            client_secret: $(MobileAppTerraformClientSecretDev)
+            api_base_url: $(ApiBaseUrlDev)
+            app_auth_url: $(SnapAuthAppUrlDev)
+            azure_b2c_client_id: $(AzureB2cClientIdDev)
+            azure_b2c_signup_signin_authority: $(AzureB2cSignUpSignInAuthorityBaseDev)
+            azure_b2c_authority_domain: $(AzureB2cAuthorityDomainDev)
+            azure_b2c_login_scopes: $(AzureB2LoginScopesDev)
+
+        - task: AzureRmWebAppDeployment@4
+          displayName: Deploy app
+          inputs:
+            connectionType: 'AzureRM'
+            azureSubscription: 'Snap Service Account Dev'
+            appType: 'webApp'
+            WebAppName: $(AppServiceName)
+            package: '$(publishedBuildsFolder)/$(buildApiArtifact).zip'
+
+  - stage: BuildAndDeployUat
+    condition: and(succeeded(), true)
+    dependsOn: BuildAndDeployDev
+    displayName: Build & deploy (uat)
+    jobs:
+      - job: waitForValidation
+        displayName: Review gate
+        pool: server    
+        timeoutInMinutes: 5
+        steps:   
+          - task: ManualValidation@0
+            displayName: Review gate
+            timeoutInMinutes: 5
+            inputs:
+              notifyUsers: |
+                  zubair@mad-panda.co.uk
+              instructions: 'This will deploy to the UAT environment'
+              onTimeout: 'reject'
+
+      - job:
+        dependsOn: waitForValidation
+        displayName: Build & deploy (uat)
+        steps:
+        - checkout: self
+          displayName: Checkout repo
+          persistCredentials: true     
+
+        - task: NodeTool@0
+          displayName: 'Install Node.js'
+          inputs:
+            versionSpec: '16.x'
+
+        - script: npm install
+          displayName: 'Install dependencies'
+          workingDirectory: $(Build.SourcesDirectory)/mobile-app/src
+
+        - script: npm run build:uat
+          displayName: 'Build app (uat)'
+          workingDirectory: $(Build.SourcesDirectory)/mobile-app/src
+
+        - task: CopyFiles@2
+          displayName: 'Copy Build Output'
+          inputs:
+            sourceFolder: '$(Build.SourcesDirectory)/mobile-app/src/build'
+            Contents: '**/*'
+            targetFolder: $(builtArtifactsFolder)
+            cleanTargetFolder: true
+
+        - task: CopyFiles@2
+          displayName: 'Copy web.config file'
+          inputs:
+            sourceFolder: '$(Build.SourcesDirectory)/mobile-app/src'
+            contents: 'web.config'
+            targetFolder: $(builtArtifactsFolder)
+
+        - task: ArchiveFiles@2
+          displayName: 'Package files'
+          inputs:
+            rootFolderOrFile: $(builtArtifactsFolder)
+            includeRootFolder: false
+            archiveType: zip
+            archiveFile: '$(publishedBuildsFolder)/$(buildApiArtifact).zip'
+            replaceExistingArchive: true
+
+        - task: PublishBuildArtifacts@1
+          displayName: 'Publish to Azure Pipelines'
+          inputs:
+            pathtoPublish: '$(publishedBuildsFolder)/$(buildApiArtifact).zip'
+
+        - template: deploy-infra.yml
+          parameters: 
+            env: 'uat'
+            state_access_key: $(MobileAppStateAccessKeyUat)
+            client_secret: $(MobileAppTerraformClientSecretUat)
+            api_base_url: $(ApiBaseUrlUat)
+            app_auth_url: $(SnapAuthAppUrlUat)
+            azure_b2c_client_id: $(AzureB2cClientIdUat)
+            azure_b2c_signup_signin_authority: $(AzureB2cSignUpSignInAuthorityBaseUat)
+            azure_b2c_authority_domain: $(AzureB2cAuthorityDomainUat)
+            azure_b2c_login_scopes: $(AzureB2LoginScopesUat)
+
+        - task: AzureRmWebAppDeployment@4
+          displayName: Deploy app to staging slot
+          inputs:
+            connectionType: 'AzureRM'
+            azureSubscription: 'Snap Service Account Dev'
+            appType: 'webApp'
+            WebAppName: $(AppServiceName)
+            package: '$(publishedBuildsFolder)/$(buildApiArtifact).zip'
+            deployToSlotOrASE: true
+            slotName: 'staging'
+            resourceGroupName: '$(AppServiceResourceGroupName)'
+
+        - task: AzureAppServiceManage@0
+          displayName: Swap slots
+          inputs:
+            action: 'Swap Slots'
+            webAppName: $(AppServiceName)
+            resourceGroupName: $(AppServiceResourceGroupName)
+            swapWithProduction: true
+            sourceSlot: 'staging'
+            targetSlot: 'production'
+            preserveVnet: false
+            azureSubscription: 'Snap Service Account Dev'
+
+  - stage: BuildAndDeployProd
+    condition: and(succeeded(), true)
+    dependsOn: BuildAndDeployUat
+    displayName: Build & deploy (prod)
+    jobs:
+      - job: waitForValidation
+        displayName: Review gate
+        pool: server    
+        timeoutInMinutes: 5
+        steps:   
+          - task: ManualValidation@0
+            displayName: Review gate
+            timeoutInMinutes: 5
+            inputs:
+              notifyUsers: |
+                  zubair@mad-panda.co.uk
+              instructions: 'This will deploy to the PROD environment'
+              onTimeout: 'reject'
+
+      - job:
+        dependsOn: waitForValidation
+        displayName: Build & deploy (prod)
+        steps:
+        - checkout: self
+          displayName: Checkout repo
+          persistCredentials: true     
+
+        - task: NodeTool@0
+          displayName: 'Install Node.js'
+          inputs:
+            versionSpec: '16.x'
+
+        - script: npm install
+          displayName: 'Install dependencies'
+          workingDirectory: $(Build.SourcesDirectory)/mobile-app/src
+
+        - script: npm run build:prod
+          displayName: 'Build app (prod)'
+          workingDirectory: $(Build.SourcesDirectory)/mobile-app/src
+
+        - task: CopyFiles@2
+          displayName: 'Copy Build Output'
+          inputs:
+            sourceFolder: '$(Build.SourcesDirectory)/mobile-app/src/build'
+            Contents: '**/*'
+            targetFolder: $(builtArtifactsFolder)
+            cleanTargetFolder: true
+
+        - task: CopyFiles@2
+          displayName: 'Copy web.config file'
+          inputs:
+            sourceFolder: '$(Build.SourcesDirectory)/mobile-app/src'
+            contents: 'web.config'
+            targetFolder: $(builtArtifactsFolder)
+
+        - task: ArchiveFiles@2
+          displayName: 'Package files'
+          inputs:
+            rootFolderOrFile: $(builtArtifactsFolder)
+            includeRootFolder: false
+            archiveType: zip
+            archiveFile: '$(publishedBuildsFolder)/$(buildApiArtifact).zip'
+            replaceExistingArchive: true
+
+        - task: PublishBuildArtifacts@1
+          displayName: 'Publish to Azure Pipelines'
+          inputs:
+            pathtoPublish: '$(publishedBuildsFolder)/$(buildApiArtifact).zip'
+
+        - template: deploy-infra.yml
+          parameters: 
+            env: 'prod'
+            state_access_key: $(MobileAppStateAccessKeyProd)
+            client_secret: $(MobileAppTerraformClientSecretProd)
+            api_base_url: $(ApiBaseUrlProd)
+            app_auth_url: $(SnapAuthAppUrlProd)
+            azure_b2c_client_id: $(AzureB2cClientIdProd)
+            azure_b2c_signup_signin_authority: $(AzureB2cSignUpSignInAuthorityBaseProd)
+            azure_b2c_authority_domain: $(AzureB2cAuthorityDomainProd)
+            azure_b2c_login_scopes: $(AzureB2LoginScopesProd)
+
+        - task: AzureRmWebAppDeployment@4
+          displayName: Deploy app to staging slot
+          inputs:
+            connectionType: 'AzureRM'
+            azureSubscription: 'Snap Service Account Prod'
+            appType: 'webApp'
+            WebAppName: $(AppServiceName)
+            package: '$(publishedBuildsFolder)/$(buildApiArtifact).zip'
+            deployToSlotOrASE: true
+            slotName: 'staging'
+            resourceGroupName: '$(AppServiceResourceGroupName)'
+
+        - task: AzureAppServiceManage@0
+          displayName: Swap slots
+          inputs:
+            action: 'Swap Slots'
+            webAppName: $(AppServiceName)
+            resourceGroupName: $(AppServiceResourceGroupName)
+            swapWithProduction: true
+            sourceSlot: 'staging'
+            targetSlot: 'production'
+            preserveVnet: false
+            azureSubscription: 'Snap Service Account Prod'

@@ -1,0 +1,79 @@
+.grid-view {
+    list-style: none;
+    margin: var(--body-spacing) 0;
+    background: #fff;
+}
+
+.grid-view__item {
+    margin: var(--body-spacing) 0;
+    border: 1px solid var(--product-view-border-colour);
+    border-radius: var(--border-radius-med);
+}
+
+.grid-view__item-info {
+    padding: calc(var(--body-spacing) * 1.5);
+    min-height: 170px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.grid-view__image-holder {
+    display: flex;
+    justify-content: center;
+}
+
+
+/* todo make this better when we have proper image data */
+.grid-view__image {
+    width: auto;
+    height: 50%;
+}
+
+.grid-view__no-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 160px;
+    background: var(--generic-background);
+    flex-direction: column;
+}
+
+/**
+    below here lots of repeated styles from list-view
+    could combine them
+ */
+.grid-view__no-image-text {
+    margin: 10px 0 0;
+    font-size: 12px;
+    color: var(--yet-another-colour);
+}
+
+.grid-view__flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.grid-view__dd {
+    font-size: 15px;
+}
+
+.grid-view__dd--small {
+    font-size: 13px;
+}
+
+.grid-view__text {
+    font-size: 12px;
+}
+
+.grid-view__text--truncated {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.grid-view__info {
+    justify-content: flex-end;
+}
+

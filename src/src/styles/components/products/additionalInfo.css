@@ -1,0 +1,157 @@
+:root {
+    --add-padding: 10px;
+}
+
+.additionalInfo {
+    background: #fff;
+    border-bottom: 1px solid var(--border-color-lt-grey);
+}
+
+.additionalInfo--no-border {
+    border-bottom: none;
+}
+
+/*.additionalInfo:first-of-type {*/
+/*    border-radius: var(--border-radius-med) var(--border-radius-med) 0 0;*/
+/*}*/
+
+/*.additionalInfo:last-of-type {*/
+/*    border-radius: 0 0 var(--border-radius-med) var(--border-radius-med);*/
+/*}*/
+
+/* display block removes the default triangle */
+.additionalInfo__summary {
+    background: #fff;
+    color: #000;
+    padding: var(--add-padding) calc(var(--add-padding) * 2);
+    line-height: 1;
+    font-weight: 500;
+    display: block;
+    position: relative;
+    font-size: 14px;
+}
+
+.additionalInfo__summary:after {
+    position: absolute;
+    font-size: 22px;
+    content: '+';
+    color: #7E7E7E;
+    right: 20px;
+    top: calc(50% - var(--summary-height) / 2);
+    font-weight: normal;
+}
+
+details[open] .additionalInfo__summary:after {
+    content: '--';
+}
+
+.additionalInfo__text {
+    font-size: 14px;
+
+}
+
+.additionalInfo__bg {
+    background: var(--background-yet-another-colour);
+}
+
+.additionalInfo__text-error {
+    padding: var(--add-padding) calc(var(--add-padding) * 2);
+}
+
+.additionalInfo__dl {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.additionalInfo__dd {
+    text-align: right;
+}
+
+.additional__card {
+    background: #fff;
+    padding: 12px 0;
+    margin-bottom: 20px;
+}
+
+/**
+    adding in the css for the sub components just to save loads of imports
+ */
+/*.additional-documents {*/
+/*    list-style: none;*/
+/*}*/
+
+/*.additional-documents__li {*/
+/*    padding: var(--add-padding) calc(var(--add-padding) * 2);*/
+/*}*/
+
+/*.additional-link,*/
+/*.additional-documents__link {*/
+/*    font-size: 14px;*/
+/*    text-decoration: underline;*/
+/*    color: var(--brand-colour-two)*/
+/*}*/
+
+.additional-documents__link:hover {
+    text-decoration: none;
+}
+
+.additional__spacing {
+    padding: var(--add-padding) calc(var(--add-padding) * 2);
+}
+
+.additional-availability__prod-no {
+    padding: var(--add-padding) calc(var(--add-padding) * 2);
+}
+
+.additional-availability__text {
+    color: var(--text-yet-another-colour);
+}
+
+.additional__list {
+    list-style: none;
+}
+
+.additional__item {
+    padding: 0 calc(var(--add-padding) * 2);
+}
+
+.additional__heading {
+    font-size: 15px;
+    color: var(--text-yet-another-colour);
+    font-weight: 500;
+    margin: 0 0 10px 0;
+}
+
+.additional__item--bordered {
+    border-bottom: 1px solid var(--border-color-lt-grey);
+}
+
+.additional__inner {
+    display: grid;
+    grid-template-columns: auto auto 20px;
+    border-bottom: 1px solid var(--border-color-lt-grey);
+    padding: var(--add-padding) 0;
+    font-size: 14px;
+}
+
+.additional__inner--col {
+    display: block;
+}
+
+.additional__inner--no-border {
+    border-bottom: 0;
+}
+
+.specification__title {
+    color: var(--text-yet-another-colour);
+}
+
+/** saves items butting up to each other when long text */
+.specification__item {
+    padding-left: 5px;
+    text-align: right;
+}
+
+.specification__item--unit {
+    width: clamp(15px, 25px, auto);
+}

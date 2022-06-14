@@ -1,0 +1,163 @@
+.home-page {
+    padding-bottom: 30px;
+}
+
+.home-page__carousel {
+    margin: 15px 0;
+}
+
+.dummy-image {
+    background-color: white;
+    border-radius: var(--border-radius-med);
+}
+
+.home-page__item {
+    margin: 20px 0 25px 0;
+}
+
+.home-page__item--rel {
+    position: relative;
+}
+
+.latest-product__link {
+    color: var(--brand-colour-five);
+    font-size: 12px;
+    display: block;
+}
+
+.latest-product__info {
+    display: flex;
+    padding: 5px 0 12px 0;
+    border-bottom: 1px solid #fff;
+}
+
+.latest-product__image {
+    margin: 0 12px 0 0;
+}
+
+.latest-product__text {
+    color: #000;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.latest-product__text--no-margin {
+    margin: 0;
+}
+
+.latest-product__price {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0 0 0;
+}
+
+.latest-news {
+    display: flex;
+}
+
+.latest-news__item {
+    width: 120px;
+}
+
+.placeholder {
+    height: 150px;
+}
+
+.orders-due {
+    margin-bottom: 35px;
+}
+
+.orders-due__list {
+    list-style: none;
+    background-color: #fff;
+    border-radius: var(--border-radius-med);
+}
+
+.orders-due__item {
+    padding: 15px 10px 10px 10px;
+    border-bottom: 1px solid #edf0f1;
+}
+
+.orders-due__item:last-of-type {
+    border: none;
+}
+
+.orders-due__link {
+    color: var(--brand-colour-four);
+    margin: 2px 0 0 10px;
+}
+
+.orders-due__inner {
+    display: flex;
+    align-items: center;
+    margin: 0 0 10px 0;
+}
+
+.orders-due__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.orders-due__date {
+    color: var(--text-yet-another-colour);
+    font-size: 14px;
+}
+
+.key-contacts {
+    margin-bottom: 10px;
+    padding-bottom: 20px;
+}
+
+.key-contacts__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 2px solid #edf0f1;
+    padding-bottom: 7px;
+}
+
+.key-contact__person {
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+}
+
+.key-contact__name {
+    display: block;
+}
+
+.key-contacts__text {
+    font-size: 12px
+}
+
+.key-contact__tel {
+    display: flex;
+}
+
+
+.key-contact__btn {
+    display: block;
+    padding: 3px 4px;
+    margin: 0 0 4px 0;
+    width: 60px;
+    font-size: 9px;
+    border-radius: var(--border-radius-med);
+    align-self: flex-end;
+}
+
+.pill {
+    border-radius: 10px;
+    padding: 3px 7px;
+    font-size: 10px;
+    margin: 0;
+    background-color: var(--brand-color-mawkish);
+}
+
+.pill--stock {
+    color: var(--yucky-green-text);
+    background-color: var(--yucky-green-background);
+    text-transform: capitalize;
+    font-size: 12px;
+    display: inline-block;
+}

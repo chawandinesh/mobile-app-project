@@ -1,0 +1,17 @@
+.basket-dl {
+    font-size: var(--text-small);
+    display: grid;
+    grid-template-columns: var(--grid-two-by-two-columns);
+    margin: 0 0 10px 0;
+}
+
+.basket__dt {font-weight: 600}
+
+.basket-dl--totals {
+    margin: 30px 0;
+}
+
+/** re-used style rather than BEM */
+.basket-text {
+    font-size: var(--text-small);
+}

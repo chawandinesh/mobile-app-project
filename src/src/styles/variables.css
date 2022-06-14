@@ -1,0 +1,82 @@
+:root {
+    --brand-colour-one: #1d1d1b;
+    --brand-colour-two: #00aee1;
+    --brand-colour-three: #62c6e9;
+    --brand-colour-four: #f49600;
+    --brand-colour-five: #ef6606;
+    --heading-alt-colour: #008FC3;
+
+
+    --input-background: #fff;
+    --background-yet-another-colour: #F8FCFF;
+    /* these three below can be combined */
+    --hollow-button-border-colour: #f1f1f1;
+    --product-view-border-colour: #ececec;
+    --border-color-lt-grey: #eee;
+    --body-colour: #ccc;
+    --border-colour-med-grey: #ccc;
+    --text-yet-another-colour: #a9a9a9;
+    --generic-background: #f9f9f9;
+
+
+    --input-border-colour: #979797;
+
+
+    --more-variations-on-grey: #969696;
+    --text-yet-another-gray-shade: #767676;
+
+    /** these are blue-greyish colours
+        probably combine these into
+        one they are pretty similar
+    **/
+    --brand-color-insipid: #ebf5f9;
+    --brand-color-mawkish: #D8EDF4;
+    --body-gb-very-mawkish: #f8fcff;
+
+
+    --yet-another-colour: #a2b4b9;
+    --yucky-green-text: #57aa43;
+    --yucky-green-background: #e0f8da;
+
+    --error-colour: #f44;
+
+    --body-text-colour: #1d1d1b;
+    --alt-text-colour: #333;
+
+    --border-radius-default: 2px;
+    --border-radius-med: 5px;
+    --border-radius-circle: 50%;
+    --button-gradient-main: linear-gradient(91.28deg, #00AEE1 0%, #55D0EC 100%);
+    --focus-colour: #333;
+
+    --text-small: 14px;
+    /* probably badly named as most text is this size */
+    --text-v-small: 13px;
+    --heading-small: 15px;
+
+    /** in theory we can change these for desktop **/
+    --grid-two-by-two-columns: 1fr 1fr;
+    --search-border: 5px solid var(--border-color-lt-grey);
+    --search-loading-width-height: 8px;
+
+    --icon-colour-default: #000;
+    --icon-size-default: 24px;
+    --icon-size-medium: 16px;
+
+    --search-input-spacing-v: 14px;
+    --body-spacing: 10px;
+
+    --link-colour-main: #000;
+    --link-colour-secondary: var(--brand-colour-five);
+    --yet-another-link-colour-list-view: #88989d;
+
+    --menu-bg-open-colour: rgba(0, 0, 0, 0.8);
+    --menu-bg-closed-colour: rgba(0, 0, 0, 0);
+    --menu-open-position: calc(100% - 300px);
+    --menu-closed-position: 100%;
+
+    --summary-height: 25px;
+    --summary-width: 25px;
+
+    --additional-padding: 12px;
+}

@@ -1,0 +1,17 @@
+.page {
+    background: #fafafa;
+    width: clamp(320px, 100%, 375px);
+    margin: auto;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.main {
+    min-height: 600px;
+    padding: 0 var(--body-spacing);
+    color: var(--body-text-colour);
+}
+
+.heading-outer {
+    position: relative;
+}

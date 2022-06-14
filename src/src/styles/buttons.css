@@ -1,0 +1,135 @@
+/* See also animations.css */
+.btn {
+    border: none;
+    color: #fff;
+    background: var(--button-gradient-main);
+    font-size: small;
+    padding: 10px 20px;
+    position: relative;
+    text-align: center;
+    border-radius: var(--border-radius-med);
+    line-height: 1.4;
+}
+
+/**
+    occasionally we have a link that looks like button
+    poor ui and ux so we need additional classes
+ */
+a.btn {
+    text-decoration: none;
+}
+
+/**
+    should not really disable links
+    but ho hum
+    mine is not to reason why
+    mine is just to do or die
+    I mean there is no reason to expect designers
+    to understand how the web works correctly
+ */
+a.btn.isDisabled {
+    cursor: not-allowed !important;
+}
+
+/** this might be the default size [not sure yet] **/
+.btn__small {
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: var(--border-radius-med);
+    height: 26px;
+}
+
+.btn__small + .btn__small {
+    margin-left: 10px;
+}
+
+.btn__full {
+    width: 100%;
+    padding: 15px 20px;
+}
+
+/** used in list view for tiny tiny and
+probably unusable on mobile + - buttons */
+.btn--tiny {
+    background: none;
+    background-color: var(--brand-colour-two);
+    padding: 0 1px 1px;
+    width: 24px;
+    height: 24px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.btn--neutral {
+    background: var(--product-view-border-colour);
+}
+
+.btn:hover {
+    cursor: pointer;
+}
+
+.btn__wait {
+    position: relative;
+    top: 4px;
+}
+
+.btn__text {
+    color: var(--brand-colour-two);
+}
+
+
+.btn:disabled {
+    cursor: not-allowed !important;
+    background: none;
+    background-color: var(--product-view-border-colour) !important;
+}
+
+.btn__icon--orange {
+    background: var(--brand-colour-four);
+}
+
+.btn__text--orange {
+    color: var(--brand-colour-five);
+}
+
+/** white button */
+.btn__hollow {
+    background: #fff;
+    border: 1px solid var(--hollow-button-border-colour);
+    color: #000;
+}
+
+.btn__hollow--odd {
+    border-color: var(--brand-color-insipid);
+    padding: 5px;
+}
+
+.btn--alt {
+    color: #000;
+    background: #fff;
+    font-size: small;
+    padding: 9px 19px;
+    position: relative;
+    text-align: center;
+    border: 1px solid #000;
+    border-radius: var(--border-radius-med);
+    line-height: 1.4;
+}
+
+.btn--view-more {
+    padding: 5px 32px 5px 20px;
+    border-radius: 1em;
+    background: #f6f6f6 url('/public/icons/arrow-down-1.svg') no-repeat;
+    background-position: calc(100% - 10px) calc(50% + 1px);
+    color: #1d1d1b;
+}
+
+.btn--view-more.open {
+    transform: scaleY(-1);
+    background-position: calc(100% - 10px) calc(50%);
+}
+
+.btn--view-more.open > span {
+    display: block;
+    transform: scaleY(-1);
+}

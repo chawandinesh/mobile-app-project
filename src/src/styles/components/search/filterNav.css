@@ -1,0 +1,51 @@
+.filter-nav {
+    list-style: none;
+    margin: var(--body-spacing) 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.filter-nav__item {
+
+}
+
+.filter-nav__btn {
+    width: 130px;
+    padding-top:8px;
+    padding-bottom: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.filter-nav__btn-text {
+    margin-left: 15px;
+}
+
+.filter-nav__view-select {
+    width: 75px;
+    display: flex;
+    border-radius: var(--border-radius-med);
+    background-color: var(--brand-color-insipid);
+    padding: 3px;
+    justify-content: space-between;
+    height: 35px;
+}
+
+.filter-nav__view-select__btn {
+    display: flex;
+    border-radius: var(--border-radius-med);
+    width: 50%;
+    background-color: transparent;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+}
+
+.filter-nav__view-select__btn:hover {
+    cursor: pointer;
+}
+
+/* saves a lot of agg in the javascript */
+[data-selected-filter="true"] {
+    background-color: #fff;
+}

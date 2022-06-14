@@ -1,0 +1,12 @@
+.list__no-style {
+    list-style: none;
+}
+
+.list__item {
+    padding: 0 0 5px 0;
+}
+
+.list__item--bordered {
+    border-bottom: 1px solid var(--border-colour-med-grey);
+}
+

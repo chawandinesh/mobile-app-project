@@ -1,0 +1,10 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+commit_regex='(#[0-9]+ -)'
+error_msg='Aborting commit : commit message must have the format "#1234 - commit-message"'
+
+if ! grep -iqE "$commit_regex" "$1"; then
+  echo "$error_msg" >&2
+  exit 1
+fi

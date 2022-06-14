@@ -1,0 +1,45 @@
+parameters:  
+  client_secret: ''
+  state_access_key: ''
+  api_base_url: ''
+  app_auth_url: ''
+  azure_b2c_client_id: ''
+  azure_b2c_signup_signin_authority: ''
+  azure_b2c_authority_domain: ''
+  azure_b2c_login_scopes: ''
+
+steps:
+  - checkout: self
+
+  - task: TerraformInstaller@0
+    displayName: Install terraform
+    inputs:
+      terraformVersion: "latest"
+
+  - script: |
+      terraform init \
+        -backend-config="vars/${{ parameters.env }}_backend.tfvars" \
+        -backend-config="access_key=${{ parameters.state_access_key }}"
+    displayName: Initialise terraform
+    workingDirectory: $(Build.SourcesDirectory)/mobile-app/infra
+
+  - script: |
+      terraform plan \
+        -out=plan \
+        -var-file=vars/${{ parameters.env }}.tfvars \
+        -var="client_secret=${{ parameters.client_secret }}" \
+        -var="api_base_url=${{ parameters.api_base_url }}" \
+        -var="app_auth_url=${{ parameters.app_auth_url }}" \
+        -var="azure_b2c_client_id=${{ parameters.azure_b2c_client_id }}" \
+        -var="azure_b2c_signup_signin_authority=${{ parameters.azure_b2c_signup_signin_authority }}" \
+        -var="azure_b2c_authority_domain=${{ parameters.azure_b2c_authority_domain }}" \
+        -var="azure_b2c_login_scopes=${{ parameters.azure_b2c_login_scopes }}"
+
+        echo "##vso[task.setvariable variable=AppServiceName]`terraform output -raw app_service_name`"
+        echo "##vso[task.setvariable variable=AppServiceResourceGroupName]`terraform output -raw app_service_rg_name`"
+    displayName: Calculate changes needed
+    workingDirectory: $(Build.SourcesDirectory)/mobile-app/infra
+
+  - script: terraform apply "plan"
+    displayName: Update infrastructure
+    workingDirectory: $(Build.SourcesDirectory)/mobile-app/infra

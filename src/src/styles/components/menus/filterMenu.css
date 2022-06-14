@@ -1,0 +1,172 @@
+.filter-menu {
+  font-size: 14px;
+  position: absolute;
+  width: 100%;
+  right: 0;
+  top: 85px;
+  background: rgba(0, 0, 0, 0);
+  height: calc(100% - 85px);
+  visibility: hidden;
+  z-index: 1;
+}
+.filter-menu__close > span {
+  display: none;
+}
+
+.filter-menu__close {
+  width: 30px;
+  height: 30px;
+  border: 2px solid black;
+  border-radius: 15px;
+  background: white;
+  position: absolute;
+  top: 10px;
+  right: -15px;
+  cursor: pointer;
+
+}
+.filter-menu__close::after {
+  content: "x";
+  position: relative;
+  font-weight: bold;
+  top: -1px;
+
+}
+
+.filter-menu--open {
+  background: var(--menu-bg-open-colour);
+  visibility: visible;
+}
+.filter-menu--closed {
+  background: var(--menu-bg-closed-colour);
+  visibility: hidden;
+}
+
+
+.filter-menu a:hover {
+  text-decoration: none;
+}
+
+.filter-menu__filters {
+  width: 300px;
+  padding: 20px;
+  position: absolute;
+  top: 0;
+  right: var(--menu-closed-position);
+  padding: 0;
+  background: #fff;
+  color: #333;
+  height: 100%;
+}
+.filter-menu__filter-groups {
+  height: calc(100vh - 205px);
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+.filter-menu__filters::-webkit-scrollbar {
+  width: 2px;
+}
+
+.filter-menu__filters--open {
+  right: var(--menu-open-position);
+}
+.filter-menu__filters--closed {
+  right: var(--menu-closed-position);
+}
+.filter-menu__heading {
+  font-size: 14px;
+  font-weight: normal;
+  background: #eee;
+  padding: 15px 20px;
+  margin: 0;
+}
+/* .filter-menu__by-category {
+  padding: 
+} */
+.filter-menu__filter-group {
+  overflow-x: hidden;
+}
+.filter-menu__filter-group > div {
+ display: block;
+}
+.filter-menu__filter-group--closed > div {
+  display: none;
+}
+.filter-menu__filter-group--open > div {
+  display: block;
+}
+.filter-menu__filter-group-heading {
+  padding: 25px 20px 10px 20px;
+  font-weight: bold;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+}
+
+.filter-menu__filter-group > legend {
+  position: relative;
+}
+.filter-menu__filter-group > legend::after {
+  content: "-";
+  font-size: 30px;
+  font-weight: normal;
+  position: absolute;
+  left: 270px;
+  top: 12px;
+}
+.filter-menu__filter-group--open > legend::after {
+  content: "-";
+  left: 270px;
+  top: 12px;
+}
+.filter-menu__filter-group--closed > legend::after {
+  content: "+";
+  left: 264px;
+  top: 13px;
+}
+.filter-menu__filter {
+  display: block;
+  border-bottom: 1px solid #ddd;
+  padding: 15px 20px;
+  margin: 0;
+}
+.filter-menu__filter > input[type="radio"] {
+  margin: 0;
+  accent-color: black;
+  width: 1.2em;
+  height: 1.2em;
+}
+.filter-menu__filter > span {
+  margin: 0 0 0 10px;
+}
+
+.filter-menu__controls {
+  padding: 15px 20px;
+  border-top: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+.filter-menu__controls a {
+  color: #aaa;
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: bold;
+}
+.filter-menu__controls button:hover {
+  cursor: pointer;
+}
+.filter-menu__controls .btn {
+  background: linear-gradient(to bottom right, #64A5DB, #85C8E8);
+}
+.filter-menu__controls button[type="reset"] {
+  border: 1px solid #f1f1f1;
+  color: #000;
+  background: none;
+  font-size: small;
+  padding: 9px 19px;
+  position: relative;
+  text-align: center;
+  border-radius: var(--border-radius-med);
+}

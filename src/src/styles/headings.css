@@ -1,0 +1,41 @@
+.heading-main {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 10px 0 0 0;
+    text-align: center;
+}
+
+.heading-sub {
+    font-size: var(--heading-small);
+}
+
+.heading-level-two {
+    text-transform: capitalize;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 6px 0;
+    line-height: 19px;
+}
+
+.heading-level-two--subtext {
+    display: block;
+    font-weight: normal;
+    font-size: 14px;
+    margin: 12px 0 0 0;
+}
+
+.heading-alt {
+    color: var(--heading-alt-colour);
+    font-size: 13px;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.heading-alt__icon {
+    display: flex;
+    align-items: center;
+}
+
+.heading-alt__text {
+    margin-left: 10px;
+}

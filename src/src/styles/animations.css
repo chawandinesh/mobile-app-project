@@ -1,0 +1,158 @@
+/** note: an alternative approach to not duplicating is to have a rule like this
+      button.search, button.something-else {
+        property: value
+      } 
+  better because 
+    1. no binding of html to css concerns (easier to scale complexity and to re-skin)
+    2. easy to understand where these styles are used
+*/
+
+.main-menu--open {
+    animation-name: menu-fade-in;
+    animation-duration: .5s;
+}
+
+.main-menu--closed {
+    animation-name: menu-fade-out;
+    animation-duration: .5s;
+}
+
+.main-menu__nav--open {
+    animation-name: menu-slide-in;
+    animation-duration: .5s;
+}
+
+.main-menu__nav--closed {
+    animation-name: menu-slide-out;
+    animation-duration: .5s;
+}
+
+.filter-menu--open {
+    animation-name: menu-fade-in;
+    animation-duration: .5s;
+}
+
+.filter-menu--closed {
+    animation-name: menu-fade-out;
+    animation-duration: .5s;
+}
+
+.filter-menu__filters--open {
+    animation-name: menu-slide-in-from-left;
+    animation-duration: .5s;
+}
+
+.filter-menu__filters--closed {
+    animation-name: menu-slide-out-to-left;
+    animation-duration: .5s;
+}
+
+
+@keyframes animate-glow {
+    from {
+        opacity: 0;
+        transform: scale(0.9, 0.9);
+    }
+    20% {
+        transform: scale(0.95, 0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1, 1);
+    }
+}
+
+@keyframes dotFlashingBlue {
+    0% {
+        background-color: #fff;
+    }
+    50%,
+    100% {
+        background-color: var(--brand-colour-two);
+    }
+}
+
+@keyframes dotFlashingOrange {
+    0% {
+        background-color: #fff;
+    }
+    50%,
+    100% {
+        background-color: var(--brand-colour-five);
+    }
+}
+
+@keyframes dotFlashingOrangeReverse {
+    0% {
+        background-color: var(--brand-colour-five);
+    }
+    50%,
+    100% {
+        background-color: #fff;
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes menu-slide-in {
+    from {
+        left: var(--menu-closed-position);
+    }
+    to {
+        left: var(--menu-open-position);
+    }
+}
+
+@keyframes menu-slide-out {
+    from {
+        left: var(--menu-open-position);
+    }
+    to {
+        left: var(--menu-closed-position);
+    }
+}
+
+@keyframes menu-slide-in-from-left {
+    from {
+        right: var(--menu-closed-position);
+    }
+    to {
+        right: var(--menu-open-position);
+    }
+}
+
+@keyframes menu-slide-out-to-left {
+    from {
+        right: var(--menu-open-position);
+    }
+    to {
+        right: var(--menu-closed-position);
+    }
+}
+
+@keyframes menu-fade-in {
+    from {
+        background: var(--menu-bg-closed-colour);
+    }
+    to {
+        background: var(--menu-bg-open-colour);
+    }
+}
+
+@keyframes menu-fade-out {
+    from {
+        background: var(--menu-bg-open-colour);
+        visibility: visible;
+    }
+    to {
+        background: var(--menu-bg-closed-colour);
+        visibility: hidden;
+    }
+}

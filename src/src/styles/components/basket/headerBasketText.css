@@ -1,0 +1,12 @@
+.basket-quantity {
+  margin: 0;
+}
+.basket-quantity .value {
+  display: block;
+  position: relative;
+  top: 5px;
+  right: 3px;
+  color: var(--alt-text-colour);
+  font-size: 16px;
+  font-weight: 600;
+}

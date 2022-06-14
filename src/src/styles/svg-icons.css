@@ -1,0 +1,142 @@
+.svg-cart {
+    width: var(--icon-size-default);
+    height: var(--icon-size-default);
+    fill: var(--icon-colour-default);
+    stroke: var(--icon-colour-default);
+}
+
+.svg-bag {
+    width: 15px;
+    height: 15px;
+    fill: var(--icon-colour-default);
+    stroke: var(--icon-colour-default);
+}
+
+.svg-menu {
+    width: 15px;
+    height: 15px;
+    fill: var(--icon-colour-default);
+}
+
+.svg-menu-close {
+    width: 13px;
+    height: 13px;
+    position: relative;
+    top: 2px;
+}
+
+.svg-search {
+    width: var(--icon-size-medium);
+    height: var(--icon-size-medium);
+}
+
+.svg-account {
+    width: 18px;
+    height: 18px;
+    position: relative;
+    top: -2px;
+}
+
+.svg-order {
+    width: var(--icon-size-medium);
+    height: var(--icon-size-medium);
+    fill: var(--brand-colour-two);
+}
+
+.svg-phone {
+    width: 19px;
+    height: 19px;
+    stroke: #1D1D1B;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: transparent;
+}
+
+.svg-home {
+    width: var(--icon-size-medium);
+    height: var(--icon-size-medium);
+    fill: var(--icon-colour-default);
+    stroke: 1px solid var(--icon-colour-default);
+}
+
+.svg-noimage {
+    width: var(--icon-size-medium);
+    height: var(--icon-size-medium);
+    fill: var(--yet-another-colour);
+}
+
+/* brightly blue icons : blue is beautiful blue is best */
+.svg-filter,
+.svg-sortby {
+    width: var(--icon-size-medium);
+    height: var(--icon-size-medium);
+    fill: var(--brand-colour-two);
+    stroke: var(--brand-colour-two);
+}
+
+.svg-listview,
+.svg-gridview {
+    width: var(--icon-size-medium);
+    height: var(--icon-size-medium);
+    fill: var(--brand-colour-two);
+    stroke: var(--brand-colour-two);
+}
+
+.svg-info {
+    width: 14px;
+    height: 14px;
+    fill: var(--brand-colour-two);
+    stroke: var(--brand-colour-two);
+}
+
+.svg-http-error {
+    height: 72px;
+    width: 72px;
+}
+
+.svg-product-basket {
+    width: 24px;
+    height: 24px;
+    fill: transparent;
+    stroke: #fff;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.svg-product-quote {
+    width: 24px;
+    height: 24px;
+    fill: transparent;
+    stroke: #1D1D1B;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.svg-product-buynow {
+    width: 24px;
+    height: 24px;
+    fill: transparent;
+    stroke: #1D1D1B;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.svg__button {
+    position: absolute;
+    left: 18px;
+    top: calc(50% - 12px);
+}
+
+.svg-back-arrow {
+    stroke: #000;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: transparent;
+    width: 8px;
+    height: 14px;
+}

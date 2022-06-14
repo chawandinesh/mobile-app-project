@@ -1,0 +1,405 @@
+{
+  "menus": [
+    {
+      "title": "Menu",
+      "id": "root",
+      "items": [
+        {
+          "title": "Home",
+          "href": "/"
+        },
+        {
+          "title": "Products",
+          "href": "#products"
+        },
+        {
+          "title": "Place Orders",
+          "href": "#placeOrders"
+        },
+        {
+          "title": "Kit Builder",
+          "href": "#kitBuilder"
+        },
+        {
+          "title": "Design Tool",
+          "href": "#designTool"
+        },
+        {
+          "title": "News",
+          "href": "/news"
+        },
+        {
+          "title": "Documentation",
+          "href": "#documentation"
+        },
+        {
+          "title": "Training & Events",
+          "href": "/training-and-events"
+        },
+        {
+          "title": "My Account",
+          "href": "#myAccount"
+        },
+        {
+          "title": "Configuration Tools",
+          "href": "#configurationTools"
+        }
+      ]
+    },
+    {
+      "title": "Products",
+      "id": "products",
+      "parent": "root",
+      "items": [
+        {
+          "title": "All Photovoltaic",
+          "href": "/products/search"
+        },
+        {
+          "title": "Panels",
+          "href": "/products/search/3-module"
+        },
+        {
+          "title": "Mounting",
+          "href": "/products/search/5-mounting"
+        },
+        {
+          "title": "Storage Systems",
+          "href": "#storagesystems"
+        },
+        {
+          "title": "Inverters",
+          "href": "#inverters"
+        },
+        {
+          "title": "EV Charging",
+          "href": "/products/search/56-ev-charging"
+        },
+        {
+          "title": "Heat Pumps",
+          "href": "/products/search?technologyId=4"
+        },
+        {
+          "title": "Special offers",
+          "href": "/products/search/24-special-offers"
+        },
+        {
+          "title": "New Products",
+          "href": "/products/search?New=true"
+        },
+        {
+          "title": "Clearance Products",
+          "href": "/products/search?Clearance=true"
+        },
+        {
+          "title": "Discontinued Products",
+          "href": "/products/search?Discontinued=true"
+        },
+        {
+          "title": "Bulk Pack Pricing",
+          "href": "/products/search?Bulkpacks=true"
+        }
+      ]
+    },
+    {
+      "title": "Storage Systems",
+      "id": "storagesystems",
+      "parent": "products",
+      "items": [
+        {
+          "title": "Li-ion Battery Pack",
+          "href": "/products/search/47-storage-systems/262-li-ion-battery-pack"
+        },
+        {
+          "title": "Self Consumption Packages",
+          "href": "/products/search/47-storage-systems/272-self-consumption-packages"
+        },
+        {
+          "title": "Grid Backup Packages",
+          "href": "/products/search/47-storage-systems/271-grid-backup-packages"
+        },
+        {
+          "title": "Charger inverters",
+          "href": "/products/search/47-storage-systems/307-charger-inverter"
+        }
+      ]
+    },
+    {
+      "title": "Inverters",
+      "id": "inverters",
+      "parent": "products",
+      "items": [
+        {
+          "title": "Micro Inverters",
+          "href": "/products/search/4-inverters/46-micro-inverter-units"
+        },
+        {
+          "title": "Hybrid Inverters",
+          "href": "/products/search/47-storage-systems/261-hybrid-inverter"
+        },
+        {
+          "title": "Main units",
+          "href": "/products/search/4-Inverters/19-main-units"
+        }
+      ]
+    },
+    {
+      "title": "Documentation",
+      "id": "documentation",
+      "parent": "root",
+      "items": [
+        {
+          "title": "Working with Segen",
+          "href": "/working-with-segen"
+        },
+        {
+          "title": "Getting Started",
+          "href": "#gettingStarted"
+        },
+        {
+          "title": "Presentations & Downloads",
+          "href": "/presentations-and-downloads"
+        },
+        {
+          "title": "Case Studies",
+          "href": "/case-studies"
+        }
+      ]
+    },
+    {
+      "title": "Getting Started",
+      "id": "gettingStarted",
+      "parent": "documentation",
+      "items": [
+        {
+          "title": "Microgeneration Certification Scheme",
+          "href": "/getting-started/microgeneration-certification-scheme"
+        },
+        {
+          "title": "Industry Training",
+          "href": "/getting-started/industry-training"
+        },
+        {
+          "title": "Industry Guides",
+          "href": "/getting-started/industry-guides"
+        }
+      ]
+    },
+    {
+      "title": "Place Orders",
+      "id": "placeOrders",
+      "parent": "root",
+      "items": [
+        {
+          "title": "Create New Order",
+          "href": "/place-orders/create-new-order"
+        },
+        {
+          "title": "Design A PV System",
+          "href": "/place-orders/design-a-pv-system"
+        },
+        {
+          "title": "Quick Quote",
+          "href": "/place-orders/quick-quote"
+        }
+      ]
+    },
+    {
+      "title": "Kit Builder",
+      "id": "kitBuilder",
+      "parent": "root",
+      "items": [
+        {
+          "title": "AC Storage Kits",
+          "href": "/kit-builder/ac-storage-kits"
+        },
+        {
+          "title": "Hybrid Storage Kits",
+          "href": "/kit-builder/hybrid-storage-kits"
+        },
+        {
+          "title": "PV System Kits New Build",
+          "href": "/kit-builder/pv-system-kits-new-build"
+        },
+        {
+          "title": "PV System Kits Residential",
+          "href": "/kit-builder/pv-system-kits-residential"
+        }
+      ]
+    },
+    {
+      "title": "Design Tool",
+      "id": "designTool",
+      "parent": "root",
+      "items": [
+        {
+          "title": "Design Tool Guides",
+          "href": "/design-tool/guides"
+        },
+        {
+          "title": "Design Tool",
+          "href": "/design-tool"
+        }
+      ]
+    },
+    {
+      "title": "My Account",
+      "id": "myAccount",
+      "parent": "root",
+      "items": [
+        {
+          "title": "Account Summary",
+          "href": "/my-account/account-summary"
+        },
+        {
+          "title": "Account Messages",
+          "href": "/my-account/account-messages"
+        },
+        {
+          "title": "Contact Preferences",
+          "href": "/my-account/contact-preferences"
+        },
+        {
+          "title": "Quotes",
+          "href": "/my-account/quotes"
+        },
+        {
+          "title": "Current Orders",
+          "href": "/my-account/current-orders"
+        },
+        {
+          "title": "Planned Shipments",
+          "href": "/my-account/planned-Shipments"
+        },
+        {
+          "title": "Payments",
+          "href": "#payments"
+        },
+        {
+          "title": "Current Invoices",
+          "href": "/my-account/current-invoices"
+        },
+        {
+          "title": "History",
+          "href": "#history"
+        },
+        {
+          "title": "Statement",
+          "href": "/my-account/statement"
+        },
+        {
+          "title": "Warranty",
+          "href": "/my-account/warranty"
+        },
+        {
+          "title": "New Return",
+          "href": "/my-account/new-return"
+        },
+        {
+          "title": "Settings",
+          "href": "#settings"
+        },
+        {
+          "title": "PV Leads",
+          "href": "/my-account/pv-leads"
+        },
+        {
+          "title": "Contact Us",
+          "href": "/my-account/contact-us"
+        }
+      ]
+    },
+    {
+      "title": "Configuration Tools",
+      "id": "configurationTools",
+      "parent": "root",
+      "items": [
+        {
+          "title": "Battery Calculator",
+          "href": "/configuration-tools/battery-calculator"
+        },
+        {
+          "title": "Quick Configurator",
+          "href": "/configuration-tools/quick-configurator"
+        }
+      ]
+    },
+    {
+      "title": "Payments",
+      "id": "payments",
+      "parent": "myAccount",
+      "items": [
+        {
+          "title": "Make a Debit Card payment",
+          "href": "/my-account/payments/make-a-debit-card-payment"
+        },
+        {
+          "title": "Notify Us of online payment",
+          "href": "/my-account/payments/notify-us-of-online-payment"
+        }
+      ]
+    },
+    {
+      "title": "History",
+      "id": "history",
+      "parent": "myAccount",
+      "items": [
+        {
+          "title": "Recent Orders",
+          "href": "/my-account/history/recent-orders"
+        },
+        {
+          "title": "Recent Shipments",
+          "href": "/my-account/history/recent-shipments"
+        },
+        {
+          "title": "Recent Invoices",
+          "href": "/my-account/history/recent-invoices"
+        },
+        {
+          "title": "Current Returns",
+          "href": "/my-account/history/current-returns"
+        }
+      ]
+    },
+    {
+      "title": "Settings",
+      "id": "settings",
+      "parent": "myAccount",
+      "items": [
+        {
+          "title": "Reset Password",
+          "href": "/my-account/settings/reset-password"
+        },
+        {
+          "title": "General Settings",
+          "href": "/my-account/settings/general-settings"
+        },
+        {
+          "title": "Shipping Address",
+          "href": "/my-account/settings/shipping-address"
+        },
+        {
+          "title": "Address Book",
+          "href": "/my-account/settings/address-book"
+        },
+        {
+          "title": "Quotation Set Up",
+          "href": "/my-account/settings/quotation-set-up"
+        },
+        {
+          "title": "Customise Navigation",
+          "href": "/my-account/settings/customise-navigation"
+        },
+        {
+          "title": "User Security Level",
+          "href": "/my-account/settings/user-security-level"
+        },
+        {
+          "title": "Change Password",
+          "href": "/my-account/settings/change-password"
+        }
+      ]
+    }
+  ]
+}

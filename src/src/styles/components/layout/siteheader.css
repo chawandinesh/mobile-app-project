@@ -1,0 +1,34 @@
+.main-header {
+    background: url('/public/segen-rsa-logo.png') no-repeat 18px 12px;
+    background-size: 140px auto;
+    background-color: var(--brand-color-insipid);
+    height: 85px;
+    margin: 0;
+    padding: 10px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.main-header__icons {
+    display: flex;
+    justify-content: space-between;
+    width: 110px;
+}
+
+.main-header__links {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-header__links:hover {
+    color: black;
+}
+
+.main-header__text {
+    font-size: 10px;
+    color: black;
+    margin: 0;
+}

@@ -1,0 +1,65 @@
+.buy-now {
+    margin-bottom: 30px;
+}
+
+.buy-now__icon {
+    scale: 80%;
+    stroke: var(--brand-colour-two);
+}
+
+/**
+    ffs I don't know why some of the designs are full width
+    and others are not, is there any consistency any rhyme or reason
+    to these designs
+ */
+.buy-now__dl {
+    margin: 0 -10px 15px -10px;
+}
+
+.buy-now__dt {
+    font-size: var(--text-v-small);
+    padding: 6px 10px;
+}
+
+.buy-now__dd {
+    font-size: var(--text-v-small);
+    padding: 6px 10px 8px 10px;
+    font-weight: 500;
+    border-bottom: 1px solid var(--brand-color-insipid);
+}
+
+.buy-now__legend {
+    font-size: var(--text-v-small);
+    color: var(--yet-another-colour);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.buy-now__legend--sml {
+    font-size: 10px;
+}
+
+.buy-now__two-two {
+    display: flex;
+    gap: 0 10px;
+}
+
+.but-now__action {
+    position: relative;
+}
+
+.but-now__lookup {
+    color: var(--brand-colour-two);
+    background: none;
+    padding: 0;
+    border: 0;
+    font-size: 11px;
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.buy-now__buttons {
+    padding: calc(var(--additional-padding) * 1.5) var(--additional-padding);
+}

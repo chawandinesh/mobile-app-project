@@ -1,0 +1,40 @@
+/* For browsers that don't support :focus-visible */
+/* have removed input from this as not sure if it fits in with new design */
+:focus, :focus-visible {
+    outline: 2px solid var(--focus-colour);
+    outline-offset: 1px;
+}
+
+/* Remove :focus styling for browsers that do support :focus-visible */
+:focus:not(:focus-visible) {
+    outline: none;
+    outline-offset: 0;
+}
+
+/*input:focus-visible {*/
+/*  outline: 2px solid #333;*/
+/*  outline-offset: 0px;*/
+/*}*/
+
+a:active {
+    outline: 2px solid #00AEE1;
+    outline-offset: 1px;
+}
+
+/*input:focus-visible {*/
+/*  border: none;*/
+/*  border-radius: var(--border-radius-default);*/
+/*}*/
+
+.visually-hidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}

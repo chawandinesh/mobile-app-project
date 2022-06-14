@@ -1,0 +1,20 @@
+.basket-summary {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.basket-summary:hover {
+  text-decoration: none;
+}
+
+.basket-summary__icon {
+  margin-left: 5px;
+  fill: #f49600;
+}
+
+.basket-summary__loading {
+  width: 40px;
+  height: 25px;
+  position: relative;
+}

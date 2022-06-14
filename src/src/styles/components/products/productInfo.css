@@ -1,0 +1,112 @@
+/** over write default spacing in layout **/
+.product-details__heading {
+    margin: 0 0 6px 0;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.product-details__parts {
+    margin-bottom: 5px;
+}
+
+.product-details__dt {
+    margin-right: 5px;
+    display: inline;
+    clear: left;
+    font-size: 13px;
+}
+
+.product-details__dd {
+    display: inline;
+    font-size: 13px;
+}
+
+.product-details__dd--alt {
+    color: var(--text-yet-another-gray-shade);
+}
+
+.product-details__added {
+    font-size: 13px;
+}
+
+/** -10px extends this over the padding and makes it full with */
+.product-details__image {
+    display: flex;
+    justify-content: center;
+    margin: 0 -10px 10px -10px;
+    background-color: #fff;
+    position: relative;
+}
+
+.product-details__back-link {
+    top: 10px;
+    left: 15px;
+}
+
+.product-details__price {
+    font-size: 14px;
+}
+
+.product-details__form {
+    margin: 20px 0;
+}
+
+/**
+product controls can have its own BEM
+ */
+
+.discount-text {
+    text-align: right;
+}
+
+.discount-text__discount {
+    display: block;
+    font-size: 20px;
+}
+
+.discount-text__amount {
+    display: block;
+    font-size: 10px;
+}
+
+.product-details__complicated-layout {
+    position: relative;
+    padding: 12px 0;
+}
+
+.product-details__pill {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.product-details__actions {
+    display: grid;
+    grid-auto-rows: auto;
+    grid-row-gap: 10px;
+    margin-bottom: 15px;
+}
+
+.product-table {
+    width: 100%;
+    text-align: left;
+}
+
+.product-table__caption {
+    padding-bottom: 10px;
+    text-align: left;
+}
+
+.product-table__right {
+    text-align: right;
+}
+
+.product-table__th {
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.product-table__body {
+    font-size: 12px;
+}

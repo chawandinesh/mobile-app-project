@@ -1,0 +1,10 @@
+.product-stock__text {
+    color: var(--yet-another-link-colour-list-view);
+    font-size: 12px;
+    margin: 0;
+}
+
+.product-stock__col {
+    padding-top: 5px;
+}
+
